@@ -13,8 +13,8 @@ export class AesEncryption implements IEncryption<AesOptions> {
     key: string,
     options: AesOptions,
   ): Promise<string> {
-    const keyBytes = padAesParameter(key);
-    const ivBytes = padAesParameter(options.iv);
+    const keyBytes = hexToBytes(key);
+    const ivBytes = hexToBytes(options.iv);
     const encoder = new TextEncoder();
     const plainBytes = encoder.encode(plaintext);
     const cryptoKey = await crypto.subtle.importKey(
@@ -37,8 +37,8 @@ export class AesEncryption implements IEncryption<AesOptions> {
     key: string,
     options: AesOptions,
   ): Promise<string> {
-    const keyBytes = padAesParameter(key);
-    const ivBytes = padAesParameter(options.iv);
+    const keyBytes = hexToBytes(key);
+    const ivBytes = hexToBytes(options.iv);
     const cipherBytes = hexToBytes(ciphertext);
     const cryptoKey = await crypto.subtle.importKey(
       "raw",
