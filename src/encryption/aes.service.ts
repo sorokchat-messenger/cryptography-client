@@ -1,5 +1,5 @@
 import type { IEncryption } from "@sorokchat-messenger/cryptography-abstractions";
-import { bytesToHex, hexToBytes, padAesParameter } from "../utils/index.js";
+import { bytesToHex, hexToBytes } from "../utils/index.js";
 
 export type AesOptions = {
   iv: string;
